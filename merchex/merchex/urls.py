@@ -23,4 +23,5 @@ path('admin/', admin.site.urls),
 path('band/', views.band),
 path('listing/', views.listing),
 path('about-us', views.about),
+path('contact', views.contact),
 ]

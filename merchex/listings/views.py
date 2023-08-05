@@ -16,3 +16,7 @@ def listing(request):
 
 def about(request):
     return render(request, 'listings/about.html')
+
+
+def contact(request):
+    return render(request, 'listings/contact.html')
