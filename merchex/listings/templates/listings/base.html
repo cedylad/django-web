@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,6 +7,10 @@
     <link rel="stylesheet" href="{% static 'listings/styles.css' %}" />
 </head>
 <body>
+    <nav>
+        <a href="{% url 'band-list' %}">Groupes</a>
+        <a href="{% url 'listing-list' %}">Listings</a>
+   </nav>
     {% block content %}{% endblock %}
 </body>
 </html>

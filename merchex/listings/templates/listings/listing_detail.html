@@ -1,0 +1,18 @@
+{% extends 'listings/base.html' %}
+
+{% block title %}
+{{ listing.title }}
+{% endblock %}
+
+{% block content %}
+  <h1>{{ listing.title | upper }}</h1>
+    <ul>
+      <li>Type : {{ listing.get_type_display }}</li>
+      <li>Description : {{ listing.description }}</li>
+      <li>Vendu : {{ listing.sold|yesno }}</li>
+      <li>Année : {{ listing.year }}</li>
+    </ul>
+
+   <a href="{% url 'listing-list' %}">Retour à tous les groupes</a>
+
+{% endblock %}

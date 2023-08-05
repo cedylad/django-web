@@ -6,11 +6,10 @@ Listing
 
 {% block content %}
 
-    <h1>Hello Django !</h1>
-    <p>Mes {{ listings | length }} listings sont :</p>
+    <h1>Listing</h1>
     <ul>
         {% for listing in listings %}
-        <li>{{ listing.title | upper }}</li>
+        <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title | upper }}</a></li>
         {% endfor %}
     </ul>
 

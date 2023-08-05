@@ -5,11 +5,10 @@ Band
 {% endblock %}
 
 {% block content %}
-<h1>Hello Django !</h1>
-    <p>Mes {{ bands | length }} groupes préférés sont :</p>
+<h1>Groupes 🎶</h1>
     <ul>
         {% for band in bands %}
-        <li>{{ band.name | upper }}</li>
+        <li><a href="{% url 'band-detail' band.id %}">{{ band.name | upper }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}
