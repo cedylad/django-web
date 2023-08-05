@@ -4,25 +4,15 @@ from django.shortcuts import render
 from listings.models import Band, Listing
 
 
-def hello(request):
+def band(request):
     bands = Band.objects.all()
+    return render(request, 'listings/bands.html',{'bands': bands})
+
+
+def listing(request):
     listings = Listing.objects.all()
-    return HttpResponse(f"""
-        <h1>Hello Django !</h1>
-        <p>Mes groupes préférés sont :<p>
-        <ul>
-            <li>{bands[0].name}</li>
-            <li>{bands[1].name}</li>
-            <li>{bands[2].name}</li>
-        </ul>
-        <p>Article :<p>
-        <ul>
-            <li>{listings[0].title}</li>
-            <li>{listings[1].title}</li>
-            <li>{listings[2].title}</li>
-        </ul>
-""")
+    return render(request, 'listings/listings.html',{'listings': listings})
 
 
 def about(request):
-    return HttpResponse('<h1>À propos</h1> <p>Nous adorons merch !</p>')
+    return render(request, 'listings/about.html')

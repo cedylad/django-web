@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Merchex | Listing</title>
+</head>
+<body>
+    <h1>Hello Django !</h1>
+    <p>Mes {{ listings | length }} listings sont :</p>
+    <ul>
+        {% for listing in listings %}
+        <li>{{ listing.title | upper }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Merchex | Band</title>
+</head>
+<body>
+    <h1>Hello Django !</h1>
+    <p>Mes {{ bands | length }} groupes préférés sont :</p>
+    <ul>
+        {% for band in bands %}
+        <li>{{ band.name | upper }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
