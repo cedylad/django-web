@@ -7,6 +7,7 @@
 {% block content %}
   <h1>{{ listing.title | upper }}</h1>
 <a href="{% url 'listing-change' listing.id %}">Modifier le listing</a>
+<a href="{% url 'listing-delete' listing.id %}">Supprimer le listing</a>
     <ul>
       <li>Type : {{ listing.get_type_display }}</li>
       <li>Description : {{ listing.description }}</li>
