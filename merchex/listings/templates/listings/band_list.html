@@ -6,6 +6,7 @@ Band
 
 {% block content %}
 <h1>Groupes 🎶</h1>
+        <a href="{% url 'band-create' %}">Ajouter un band</a>
     <ul>
         {% for band in bands %}
         <li><a href="{% url 'band-detail' band.id %}">{{ band.name | upper }}</a></li>

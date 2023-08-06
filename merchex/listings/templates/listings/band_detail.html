@@ -17,11 +17,12 @@
 
   <p>Biographie : {{ band.biography }}</p>
 
-  <h4>Tous le merch de {{ band.name }}</h4>
-
-  {% for listing in band.listing_set.all %}
-    <li> <a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a></li> <br/>
-  {% endfor %}
+  {% if band.listing_set.all %}
+    <h4>Tous le merch de {{ band.name }}</h4>
+    {% for listing in band.listing_set.all %}
+      <li> <a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a></li> <br/>
+    {% endfor %}
+  {% endif %}
 
    <a href="{% url 'band-list' %}">Retour à tous les groupes</a>
 
