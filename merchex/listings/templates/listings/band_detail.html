@@ -6,6 +6,7 @@
 
 {% block content %}
   <h1>{{ band.name | upper }}</h1>
+<a href="{% url 'band-change' band.id %}">Modifier le band</a>
     <ul>
       <li>Genre : {{ band.get_genre_display }}</li>
       <li>Année de formation : {{ band.year_formed }}</li>

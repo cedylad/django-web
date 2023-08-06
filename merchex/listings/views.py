@@ -76,7 +76,24 @@ def band_create(request):
         form = BandForm()
     return render(request,'listings/band_create.html',{'form': form})
 
+
+def band_change(request, id):
+    band = Band.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = BandForm(request.POST, instance=band)
+        if form.is_valid():
+            # mettre à jour le groupe existant dans la base de données
+            form.save()
+            # rediriger vers la page détaillée du groupe que nous venons de mettre à jour
+            return redirect('band-detail', band.id)
+    else:
+        form = BandForm(instance=band)
+    return render(request,'listings/band_change.html', {'form': form})
+
+
 def listing_create(request):
+
     if request.method == 'POST':
         form = ListingForm(request.POST)
         if form.is_valid():
@@ -84,7 +101,23 @@ def listing_create(request):
             listing = form.save()
             # redirige vers la page de détail du listing que nous venons de créer
             # nous pouvons fournir les arguments du motif url comme arguments à la fonction de redirection
-        return redirect('listing-detail', listing.id)
+            return redirect('listing-detail', listing.id)
+
     else:
         form = ListingForm()
     return render(request,'listings/listing_create.html',{'form': form})
+
+
+def listing_change(request, id):
+    listing = Listing.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = ListingForm(request.POST, instance=listing)
+        if form.is_valid():
+            # mettre à jour le listing existant dans la base de données
+            form.save()
+            # rediriger vers la page détaillée du listing que nous venons de mettre à jour
+            return redirect('listing-detail', listing.id)
+    else:
+        form = ListingForm(instance=listing)
+    return render(request,'listings/listing_change.html', {'form': form})
